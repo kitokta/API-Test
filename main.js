@@ -23,6 +23,8 @@ async function getImg(keyword) {
   }
 
   catch {
+    button.style.visibility = 'hidden';
+    button.style.pointerEvents = 'none';
     img.src = '';
     const err = document.createElement('h1');
     err.textContent = 'Não foi possível encontrar uma imagem...';
@@ -31,8 +33,13 @@ async function getImg(keyword) {
     err.style.color = 'red';
     const body = document.getElementsByTagName('body')[0];
     body.appendChild(err);
-    setTimeout(() => {body.removeChild(err)}, 1000)
-    getImg("cats");
+    setTimeout(() => {
+      body.removeChild(err);
+      button.style.visibility = 'visible';
+      button.style.pointerEvents = 'default';
+    }, 700)
+
+    setTimeout(() => {getImg("cats") = await}, 700);
   }
   
   
