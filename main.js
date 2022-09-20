@@ -28,6 +28,7 @@ async function getImg(keyword) {
     err.textContent = 'Não foi possível encontrar uma imagem...';
     err.style.marginTop = '300px';
     err.style.position = 'absolute';
+    err.style.color = 'red';
     const body = document.getElementsByTagName('body')[0];
     body.appendChild(err);
     setTimeout(() => {body.removeChild(err)}, 1000)
