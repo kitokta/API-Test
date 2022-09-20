@@ -8,18 +8,26 @@ window.addEventListener("load", () => {
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
-  getImg(toSearch.value);
+  const spinner = document.getElementById('spinner');
+  spinner.style.visibility = 'visible';
+  getImg(toSearch.value)
+  .then(() => {spinner.style.visibility = 'hidden';})
   
 });
 
 async function getImg(keyword) {
   try {
+    img.src = '';
     const response = await fetch(
       `https://api.giphy.com/v1/gifs/translate?api_key=M1PYUL5WucKjkUlOw4xGLaRAVjcF793Q&s=${keyword}`,
       { mode: "cors" }
     );
+      
+    
       const imgData = await response.json();
-      img.src = imgData.data.images.original.url;  
+      img.src = imgData.data.images.original.url;
+      
+        
   }
 
   catch {
@@ -36,7 +44,7 @@ async function getImg(keyword) {
     setTimeout(() => {
       body.removeChild(err);
       button.style.visibility = 'visible';
-      button.style.pointerEvents = 'default';
+      button.style.pointerEvents = 'all';
     }, 700)
 
     setTimeout(() => {getImg("cats") = await}, 700);
