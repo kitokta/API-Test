@@ -32,6 +32,7 @@ async function getImg(keyword) {
     const body = document.getElementsByTagName('body')[0];
     body.appendChild(err);
     setTimeout(() => {body.removeChild(err)}, 1000)
+    getImg("cats");
   }
   
   
