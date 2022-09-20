@@ -12,7 +12,8 @@ window.addEventListener('load', () => {
   });
 })
 
-button.addEventListener('click', () => {
+button.addEventListener('click', (e) => {
+  e.preventDefault();
   fetch(`https://api.giphy.com/v1/gifs/translate?api_key=M1PYUL5WucKjkUlOw4xGLaRAVjcF793Q&s=${toSearch.value}`, {mode: 'cors'})
   .then(function(response) {
     console.log(response.json);

@@ -8,18 +8,62 @@
 body {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    justify-content: center;
+    gap: 10em;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
+    padding: 2em;
+    background-color: #FDD6EA;
 }
 
 img {
     max-width: 500px;
     max-height: 500px;
+    align-self: center;
+    border-radius: 30px;
 }
 #fetch {
     padding: 10px;
     width: 100px;
     height: 50px;
+    background-color: #8620C6;
+    color: #fff;
+    font-weight: bold;
+    border-color: #FDD6EA;
+    border-radius: 18px;
+}
+
+#fetch:hover {
+    width: 102px;
+    height: 52px;
+    margin-bottom: -2px;
+    margin-left: -2px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+}
+
+form label {
+    font-size: 15pt;
+    color: #8620C6;
+}
+
+#search-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+
+#gif-search {
+    width: 200px;
+    height: 40px;
+    padding: 1em;
+    font-size: 12pt;
+    border: 2px solid #8620C6;
+    border-radius: 15px;
+    background-color: #FFFDF5;
 }
