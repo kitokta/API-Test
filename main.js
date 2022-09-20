@@ -13,13 +13,25 @@ button.addEventListener("click", (e) => {
 });
 
 async function getImg(keyword) {
-  const response = await fetch(
-    `https://api.giphy.com/v1/gifs/translate?api_key=M1PYUL5WucKjkUlOw4xGLaRAVjcF793Q&s=${keyword}`,
-    { mode: "cors" }
-  );
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/translate?api_key=M1PYUL5WucKjkUlOw4xGLaRAVjcF793Q&s=${keyword}`,
+      { mode: "cors" }
+    );
+      const imgData = await response.json();
+      img.src = imgData.data.images.original.url;  
+  }
 
-  response.json().then(function(response) {
-    img.src = response.data.images.original.url;
-  })
+  catch {
+    img.src = '';
+    const err = document.createElement('h1');
+    err.textContent = 'Não foi possível encontrar uma imagem...';
+    err.style.marginTop = '300px';
+    err.style.position = 'absolute';
+    const body = document.getElementsByTagName('body')[0];
+    body.appendChild(err);
+    setTimeout(() => {body.removeChild(err)}, 1000)
+  }
+  
   
 }
